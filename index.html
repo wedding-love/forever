@@ -5,22 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Приглашение на свадьбу | Дмитрий & Виктория</title>
     
-    <!-- ... (стили шрифтов без изменений) ... -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        /* ... (все предыдущие стили сохранены) ... */
         :root {
             --bg-color: #FDFBF7;
-            --text-main: #5C5346;
+            --text-main: #2C2826; /* Сделали текст более черным для контраста */
             --accent-green: #A3C9A8;
             --accent-pink: #E2C2B3;
             --btn-hover-green: #8BB592;
             --btn-hover-pink: #D1AFA0;
             --section-bg: #F5EFEB;
             --location-card-bg: var(--accent-pink);
+            --shadow-sm: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 20px 40px rgba(0, 0, 0, 0.08);
         }
 
         * {
@@ -37,6 +37,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Анимации */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -60,19 +61,19 @@
         .marquee-container {
             background-color: var(--accent-green);
             color: var(--text-main);
-            padding: 8px 0;
+            padding: 10px 0;
             overflow: hidden;
             white-space: nowrap;
             width: 100%;
         }
         .marquee-content {
             display: inline-block;
-            font-size: clamp(0.65rem, 2vw, 0.75rem);
+            font-size: 0.8rem;
             font-weight: 600;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             animation: marquee 20s linear infinite;
         }
-        .marquee-content span { padding: 0 20px; }
+        .marquee-content span { padding: 0 25px; }
         @keyframes marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
@@ -80,317 +81,360 @@
 
         /* Главный экран */
         .hero {
-            padding: clamp(20px, 5vw, 30px) 20px;
+            padding: clamp(30px, 8vw, 60px) 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            gap: 15px;
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         .names {
-            font-size: clamp(0.7rem, 2vw, 0.85rem);
-            letter-spacing: 4px;
+            font-size: 0.85rem;
+            letter-spacing: 5px;
             text-transform: uppercase;
             font-weight: 500;
             margin-bottom: 5px;
         }
         .main-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.2rem, 8vw, 3rem);
+            font-size: clamp(2.5rem, 10vw, 4rem);
             line-height: 1.1;
             text-transform: uppercase;
             font-weight: 400;
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 100%;
+        }
+        .title-line-1 {
+            display: block;
+            margin-bottom: -5px;
         }
         .script-text {
             font-family: 'Great Vibes', cursive;
             text-transform: none;
             color: var(--accent-green);
-            font-size: clamp(3rem, 12vw, 4.5rem);
-            margin: -20px 0 -10px 0;
+            font-size: clamp(3.5rem, 15vw, 6rem);
+            margin: -15px 0 -20px 0;
+            line-height: 1.3;
+            font-weight: 400;
+        }
+        .title-line-2 {
+            display: block;
+            font-size: 0.9em;
         }
         .photo-container {
             width: 100%;
-            max-width: 380px;
-            margin: 10px 0;
-            position: relative;
+            max-width: 400px;
+            margin: 15px 0;
         }
         .photo-container img {
             width: 100%;
             height: auto;
-            border-radius: 2px;
+            border-radius: 4px;
             display: block;
-            box-shadow: 0 10px 30px rgba(92, 83, 70, 0.15);
+            box-shadow: var(--shadow-md);
         }
         .description {
-            font-size: clamp(0.7rem, 2vw, 0.8rem);
-            line-height: 1.6;
-            max-width: 400px;
-            letter-spacing: 1px;
+            font-size: 0.8rem;
+            line-height: 1.8;
+            max-width: 450px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             font-weight: 400;
-            opacity: 0.9;
-            padding: 0 10px;
+            opacity: 0.85;
+            padding: 0 15px;
         }
-        .music-btn-wrapper { margin-top: 10px; }
+        .music-btn-wrapper { margin-top: 15px; }
         .music-btn {
-            width: clamp(90px, 25vw, 110px);
-            height: clamp(90px, 25vw, 110px);
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             background-color: var(--accent-pink);
             color: var(--text-main);
             border: none;
             cursor: pointer;
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(0.6rem, 1.8vw, 0.7rem);
+            font-size: 0.75rem;
             font-weight: 600;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 10px;
+            padding: 15px;
+            box-shadow: var(--shadow-sm);
         }
         .music-btn:hover {
             transform: scale(1.05);
             background-color: var(--btn-hover-pink);
+            box-shadow: var(--shadow-md);
         }
 
-        /* --- НОВЫЙ БЛОК ТАЙМЕРА --- */
+        /* --- ТАЙМЕР (СОВРЕМЕННЫЙ СТИЛЬ) --- */
         .timer-section {
-            padding: 40px 20px 20px;
+            padding: 60px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             background-color: var(--bg-color);
+            width: 100%;
         }
         .timer-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.4rem, 5vw, 1.8rem);
-            letter-spacing: 3px;
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
+            letter-spacing: 4px;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             color: var(--text-main);
-            opacity: 0.8;
+            font-weight: 400;
         }
         .timer-grid {
             display: flex;
-            gap: clamp(10px, 4vw, 25px);
+            gap: clamp(15px, 5vw, 40px);
             justify-content: center;
             flex-wrap: wrap;
+            width: 100%;
         }
         .timer-card {
             background: white;
-            padding: clamp(12px, 3vw, 20px) clamp(15px, 4vw, 25px);
-            border-radius: 30px;
-            box-shadow: 0 8px 20px rgba(92, 83, 70, 0.08);
-            min-width: 80px;
+            padding: clamp(20px, 5vw, 30px) clamp(15px, 4vw, 25px);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.04);
+            min-width: 100px;
             text-align: center;
-            border: 1px solid rgba(163, 201, 168, 0.3);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            transition: transform 0.2s ease;
+        }
+        .timer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 40px rgba(0, 0, 0, 0.06);
         }
         .timer-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.5rem, 10vw, 4rem);
-            font-weight: 600;
-            color: var(--accent-pink);
-            line-height: 1.2;
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(3.5rem, 12vw, 5.5rem);
+            font-weight: 300;
+            color: #1A1817; /* Черный цвет для цифр */
+            line-height: 1.1;
+            letter-spacing: 2px;
         }
         .timer-label {
-            font-size: clamp(0.6rem, 2vw, 0.75rem);
-            letter-spacing: 2px;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--text-main);
-            opacity: 0.7;
+            opacity: 0.6;
             font-weight: 500;
+            margin-top: 8px;
         }
         .timer-message {
-            margin-top: 25px;
+            margin-top: 35px;
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            font-size: 1.1rem;
-            color: var(--accent-green);
+            font-size: 1.3rem;
+            color: var(--text-main);
+            opacity: 0.8;
         }
 
-        /* Блок с локацией */
+        /* Блок с локацией (УВЕЛИЧЕН) */
         .location-block {
-            padding: clamp(40px, 8vw, 60px) 20px;
+            padding: 0;
             display: flex;
             justify-content: center;
+            align-items: center;
             background-color: var(--bg-color);
+            width: 100%;
         }
         .oval-card {
             background-color: var(--location-card-bg);
-            width: 100%;
-            max-width: 450px;
-            padding: clamp(50px, 12vw, 80px) clamp(25px, 8vw, 40px);
-            border-radius: 250px 250px 20px 20px;
+            width: 100%; /* ЗАНИМАЕТ ВСЮ ШИРИНУ */
+            max-width: 100%;
+            padding: clamp(80px, 15vw, 120px) clamp(30px, 10vw, 60px);
+            border-radius: 0; /* Убрали овальность для полной ширины */
             text-align: center;
             color: #FDFBF7;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* Добавим небольшой внутренний контейнер для центрирования текста на больших экранах */
+        .oval-card-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
         .flower-decor {
             position: absolute;
-            top: -10px;
-            right: 10px;
-            width: clamp(80px, 20vw, 120px);
-            opacity: 0.9;
+            top: 30px;
+            right: 30px;
+            width: 150px;
+            opacity: 0.15;
             pointer-events: none;
         }
         .location-card-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.6rem, 6vw, 2.2rem);
+            font-size: clamp(2.2rem, 8vw, 3.5rem);
             line-height: 1.2;
             margin-bottom: 30px;
             text-transform: uppercase;
             font-weight: 400;
+            letter-spacing: 6px;
         }
         .location-text {
-            font-size: clamp(0.7rem, 2.2vw, 0.85rem);
-            line-height: 1.6;
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            line-height: 1.8;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 40px;
+            letter-spacing: 2px;
+            margin-bottom: 50px;
             font-weight: 400;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .event-details { margin-bottom: 40px; }
+        .event-details { margin-bottom: 50px; }
         .event-date {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.6rem, 6vw, 2.2rem);
-            margin-bottom: 15px;
+            font-size: clamp(2.2rem, 8vw, 3rem);
+            margin-bottom: 20px;
+            letter-spacing: 3px;
         }
         .event-place {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.1rem, 4vw, 1.4rem);
+            font-size: clamp(1.4rem, 5vw, 1.8rem);
             font-weight: 600;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
         .event-city {
-            font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+            font-size: 1rem;
             opacity: 0.9;
+            letter-spacing: 2px;
         }
         .map-button {
             display: inline-block;
             background-color: #FDFBF7;
             color: var(--accent-pink);
-            padding: clamp(12px, 3vw, 15px) clamp(20px, 6vw, 30px);
-            border-radius: 30px;
+            padding: 18px 40px;
+            border-radius: 50px;
             text-decoration: none;
-            font-size: clamp(0.65rem, 2vw, 0.75rem);
+            font-size: 0.85rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: transform 0.3s ease;
+            letter-spacing: 3px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.5);
         }
-        .map-button:hover { transform: translateY(-3px); }
+        .map-button:hover {
+            transform: translateY(-3px);
+            background-color: white;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+        }
 
         /* Тайминг */
         .timing-section {
-            padding: clamp(40px, 8vw, 60px) 20px;
+            padding: clamp(60px, 12vw, 100px) 20px;
             background-color: var(--bg-color);
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            color: var(--text-main);
+            width: 100%;
         }
         .timing-header {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.2rem, 8vw, 3rem);
-            letter-spacing: 5px;
+            font-size: clamp(2.5rem, 10vw, 3.5rem);
+            letter-spacing: 6px;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: var(--accent-green);
         }
         .timing-intro {
-            font-size: clamp(0.65rem, 2vw, 0.75rem);
-            line-height: 1.5;
-            letter-spacing: 1px;
+            font-size: 0.8rem;
+            line-height: 1.8;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            max-width: 350px;
-            margin-bottom: 50px;
+            max-width: 400px;
+            margin-bottom: 60px;
             opacity: 0.8;
-            padding: 0 15px;
+            padding: 0 20px;
         }
-        .timing-item { margin-bottom: 45px; position: relative; }
+        .timing-item { margin-bottom: 50px; }
         .timing-time {
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(1rem, 3vw, 1.1rem);
+            font-size: 1.2rem;
             font-weight: 500;
             color: var(--accent-green);
-            margin-bottom: 5px;
-        }
-        .timing-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.4rem, 5vw, 1.8rem);
-            text-transform: uppercase;
             margin-bottom: 10px;
             letter-spacing: 2px;
         }
-        .timing-desc {
-            font-size: clamp(0.65rem, 2vw, 0.75rem);
-            line-height: 1.4;
+        .timing-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 6vw, 2.2rem);
             text-transform: uppercase;
-            max-width: 300px;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+            font-weight: 400;
+        }
+        .timing-desc {
+            font-size: 0.8rem;
+            line-height: 1.6;
+            text-transform: uppercase;
+            max-width: 350px;
             margin: 0 auto;
             opacity: 0.7;
-            padding: 0 10px;
+            padding: 0 15px;
+            letter-spacing: 1.5px;
         }
-        .timing-illustration {
-            width: 100%;
-            max-width: 350px;
-            margin-top: 20px;
-            opacity: 0.6;
-        }
-        .timing-illustration img { width: 100%; height: auto; }
 
         /* Дресс-код */
         .dresscode-section {
-            padding: clamp(40px, 8vw, 60px) 20px;
+            padding: clamp(60px, 12vw, 100px) 20px;
             background-color: var(--section-bg);
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
+            width: 100%;
         }
         .dresscode-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2rem, 7vw, 2.5rem);
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            color: var(--text-main);
-        }
-        .dresscode-text {
-            font-size: clamp(0.7rem, 2.2vw, 0.8rem);
-            line-height: 1.6;
-            max-width: 500px;
-            letter-spacing: 1px;
+            font-size: clamp(2.5rem, 10vw, 3.5rem);
             text-transform: uppercase;
             margin-bottom: 30px;
+            letter-spacing: 6px;
+        }
+        .dresscode-text {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            max-width: 600px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
             opacity: 0.9;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         .palette-container {
             display: flex;
-            gap: clamp(10px, 3vw, 15px);
+            gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 10px;
-            padding: 0 10px;
+            margin-top: 20px;
         }
         .palette-circle {
-            width: clamp(40px, 10vw, 50px);
-            height: clamp(40px, 10vw, 50px);
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow-sm);
             transition: transform 0.3s ease;
         }
         .palette-circle:hover { transform: scale(1.1); }
@@ -400,131 +444,117 @@
         .color-4 { background-color: #F1E2D1; }
         .color-5 { background-color: #A38B83; }
         .dresscode-note {
-            margin-top: 35px;
+            margin-top: 50px;
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            font-size: clamp(0.95rem, 3vw, 1.1rem);
+            font-size: 1.3rem;
             opacity: 0.8;
-            padding: 0 15px;
         }
 
         /* Анкета */
         .questionnaire-section {
-            padding: clamp(50px, 10vw, 80px) 20px;
+            padding: clamp(60px, 12vw, 100px) 20px;
             background-color: var(--bg-color);
             display: flex;
             flex-direction: column;
             align-items: center;
-            color: var(--text-main);
+            width: 100%;
         }
         .q-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2rem, 7vw, 2.8rem);
+            font-size: clamp(2.5rem, 10vw, 3.5rem);
             text-transform: uppercase;
-            margin-bottom: 15px;
-            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 6px;
         }
         .q-subtitle {
-            font-size: clamp(0.65rem, 2vw, 0.75rem);
+            font-size: 0.8rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             opacity: 0.7;
             text-align: center;
-            max-width: 450px;
-            line-height: 1.5;
-            padding: 0 15px;
+            max-width: 500px;
+            line-height: 1.8;
+            padding: 0 20px;
         }
         .q-form {
             width: 100%;
-            max-width: 550px;
+            max-width: 600px;
             display: flex;
             flex-direction: column;
-            gap: 30px;
-            padding: 0 10px;
+            gap: 35px;
+            padding: 0 15px;
         }
-        .q-group { display: flex; flex-direction: column; gap: 10px; }
+        .q-group { display: flex; flex-direction: column; gap: 12px; }
         .q-label {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1rem, 3.5vw, 1.2rem);
+            font-size: 1.2rem;
             font-style: italic;
             letter-spacing: 1px;
         }
-        .q-input, .q-select, .q-textarea {
+        .q-input, .q-textarea {
             width: 100%;
             padding: 15px 0;
             background: transparent;
             border: none;
-            border-bottom: 1px solid rgba(92, 83, 70, 0.3);
+            border-bottom: 1.5px solid rgba(44, 40, 38, 0.2);
             color: var(--text-main);
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+            font-size: 0.9rem;
             outline: none;
             transition: border-color 0.3s;
         }
-        .q-input:focus, .q-select:focus, .q-textarea:focus {
-            border-bottom-color: var(--accent-pink);
-        }
-        .q-radio-group {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 5px;
-        }
+        .q-input:focus, .q-textarea:focus { border-bottom-color: var(--accent-pink); }
+        .q-radio-group { display: flex; flex-direction: column; gap: 15px; margin-top: 5px; }
         .q-radio-label {
-            font-size: clamp(0.7rem, 2.2vw, 0.8rem);
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             display: flex;
             align-items: center;
             cursor: pointer;
         }
-        .q-radio-label input {
-            margin-right: 10px;
-            accent-color: var(--accent-pink);
-        }
+        .q-radio-label input { margin-right: 12px; accent-color: var(--accent-pink); width: 18px; height: 18px; }
         .q-submit {
-            margin-top: 20px;
+            margin-top: 30px;
             background-color: var(--accent-pink);
             color: var(--text-main);
-            padding: clamp(16px, 4vw, 20px);
+            padding: 20px;
             border: none;
-            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: clamp(0.7rem, 2.2vw, 0.8rem);
+            letter-spacing: 4px;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: all 0.3s ease;
+            border-radius: 4px;
+            box-shadow: var(--shadow-sm);
         }
         .q-submit:hover {
             background-color: var(--text-main);
-            color: var(--bg-color);
+            color: white;
+            box-shadow: var(--shadow-md);
         }
-        .q-textarea { resize: none; height: 80px; }
-        ::placeholder {
-            color: rgba(92, 83, 70, 0.4);
-            font-size: 0.8rem;
-        }
+        .q-textarea { resize: vertical; height: 100px; }
+        ::placeholder { color: rgba(44, 40, 38, 0.3); font-size: 0.8rem; letter-spacing: 1px; }
 
-        /* Медиа */
-        @media (max-width: 480px) {
-            .hero { padding: 20px 15px; }
-            .oval-card { padding: 40px 20px; }
-            .timing-item { margin-bottom: 35px; }
-            .palette-container { gap: 8px; }
-            .q-form { padding: 0 5px; }
-            .timer-card { min-width: 65px; padding: 10px 8px; }
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .timer-card { min-width: 80px; padding: 15px 10px; }
+            .flower-decor { width: 100px; top: 15px; right: 15px; }
         }
-        @media (min-width: 768px) {
-            .hero { padding: 40px 30px; }
-            .description { max-width: 500px; }
+        @media (max-width: 480px) {
+            .timer-grid { gap: 10px; }
+            .timer-card { min-width: 65px; padding: 12px 5px; }
+            .timer-number { font-size: 2.5rem; }
+            .timer-label { font-size: 0.6rem; letter-spacing: 1.5px; }
+            .map-button { padding: 15px 25px; font-size: 0.75rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Бегущая строка 1 -->
     <div class="marquee-container">
         <div class="marquee-content" id="marquee-text-1"></div>
     </div>
@@ -533,9 +563,9 @@
         <div class="names fade-up">Дмитрий + Виктория</div>
         
         <h1 class="main-title">
-            <span class="fade-up fade-up-delay-1">Наша история.</span>
+            <span class="title-line-1 fade-up fade-up-delay-1">Наша история</span>
             <span class="script-text fade-up fade-up-delay-2">Начинается</span>
-            <span class="fade-up fade-up-delay-3">Сейчас</span>
+            <span class="title-line-2 fade-up fade-up-delay-3">Сейчас</span>
         </h1>
 
         <div class="photo-container fade-up fade-up-delay-3">
@@ -551,7 +581,7 @@
         </div>
     </main>
 
-    <!-- ===== НОВЫЙ БЛОК: ТАЙМЕР ДО СВАДЬБЫ ===== -->
+    <!-- ТАЙМЕР (СОВРЕМЕННЫЙ) -->
     <section class="timer-section animate-on-scroll">
         <h2 class="timer-title">До свадьбы осталось</h2>
         <div class="timer-grid" id="weddingTimer">
@@ -575,71 +605,59 @@
         <div class="timer-message" id="timerMessage">Мы с нетерпением ждём этот день!</div>
     </section>
 
-    <!-- Блок с локацией -->
+    <!-- Блок с локацией (УВЕЛИЧЕН) -->
     <section class="location-block animate-on-scroll">
         <div class="oval-card">
-            <img src="https://cdn-icons-png.flaticon.com/512/3405/3405904.png" class="flower-decor" alt="decor" style="filter: brightness(0) invert(1); opacity: 0.3;">
-            
-            <h2 class="location-card-title">ДРУЗЬЯ И РОДНЫЕ</h2>
-
-            <p class="location-text">
-                Наша свадьба без вас не будет такой счастливой, уютной и веселой! Приглашаем отметить этот день вместе с нами!
-            </p>
-
-            <div class="event-details">
-                <div class="event-date">25 АВГУСТА 2026</div>
-                <div class="event-place">РЕСТОРАН «DIPSERVICE HALL»</div>
-                <div class="event-city">г. Минск, пер. Войсковый, 4</div>
+            <img src="https://cdn-icons-png.flaticon.com/512/3405/3405904.png" class="flower-decor" alt="decor">
+            <div class="oval-card-content">
+                <h2 class="location-card-title">ДРУЗЬЯ И РОДНЫЕ</h2>
+                <p class="location-text">
+                    Наша свадьба без вас не будет такой счастливой, уютной и веселой! Приглашаем отметить этот день вместе с нами!
+                </p>
+                <div class="event-details">
+                    <div class="event-date">25 АВГУСТА 2026</div>
+                    <div class="event-place">РЕСТОРАН «DIPSERVICE HALL»</div>
+                    <div class="event-city">г. Минск, пер. Войсковый, 4</div>
+                </div>
+                <a href="https://maps.google.com" target="_blank" class="map-button">Посмотреть на карте</a>
             </div>
-
-            <a href="https://maps.google.com" target="_blank" class="map-button">Посмотреть на карте</a>
         </div>
     </section>
 
-    <!-- Блок Тайминг -->
+    <!-- Блок Тайминг (без картинки) -->
     <section class="timing-section animate-on-scroll">
         <h2 class="timing-header">Тайминг</h2>
-        
         <p class="timing-intro">
             Чтобы вы чувствовали себя комфортно, делимся планом вечера:
         </p>
-
         <div class="timing-item">
             <div class="timing-time">15:00</div>
             <h3 class="timing-title">Сбор гостей</h3>
             <p class="timing-desc">Общение с гостями и праздничный фуршет</p>
         </div>
-
         <div class="timing-item">
             <div class="timing-time">15:30</div>
             <h3 class="timing-title">Церемония</h3>
             <p class="timing-desc">Пожалуйста, не стесняйтесь проявлять ваши искренние эмоции</p>
         </div>
-
         <div class="timing-item">
             <div class="timing-time">16:00</div>
             <h3 class="timing-title">Банкет</h3>
             <p class="timing-desc">Время танцев, веселья, ваших поздравлений и вкусной еды</p>
         </div>
-
-        <div class="timing-illustration">
-            <img src="https://cdni.iconscout.com/illustration/premium/thumb/friends-enjoying-dinner-party-11002577-8843110.png" alt="illustration">
-        </div>
+        <!-- Иллюстрация удалена -->
     </section>
 
-    <!-- Бегущая строка 2 -->
     <div class="marquee-container">
         <div class="marquee-content" id="marquee-text-2"></div>
     </div>
 
-    <!-- Блок Дресс-код -->
+    <!-- Дресс-код -->
     <section class="dresscode-section animate-on-scroll">
         <h2 class="dresscode-title">Дресс-код</h2>
-        
         <p class="dresscode-text">
             Будем признательны, если при выборе наряда вы отдадите предпочтение пастельным оттенкам и придержитесь нашей цветовой палитры. 
         </p>
-
         <div class="palette-container">
             <div class="palette-circle color-1"></div>
             <div class="palette-circle color-2"></div>
@@ -647,55 +665,41 @@
             <div class="palette-circle color-4"></div>
             <div class="palette-circle color-5"></div>
         </div>
-
-        <p class="dresscode-note">
-            Ваше присутствие — наш главный подарок
-        </p>
+        <p class="dresscode-note">Ваше присутствие — наш главный подарок</p>
     </section>
 
-    <!-- Блок Анкета гостя -->
+    <!-- Анкета -->
     <section class="questionnaire-section animate-on-scroll">
         <h2 class="q-title">Анкета гостя</h2>
         <p class="q-subtitle">Пожалуйста, заполните форму до 1 августа, чтобы мы могли сделать праздник идеальным для каждого</p>
-
         <form class="q-form" id="guest-form">
             <div class="q-group">
                 <label class="q-label">Ваше имя и фамилия</label>
                 <input type="text" class="q-input" placeholder="Введите ответ..." required>
             </div>
-
             <div class="q-group">
                 <label class="q-label">Присутствие</label>
                 <div class="q-radio-group">
-                    <label class="q-radio-label">
-                        <input type="radio" name="presence" value="yes" checked> Я приду / Мы придем
-                    </label>
-                    <label class="q-radio-label">
-                        <input type="radio" name="presence" value="no"> К сожалению, не смогу
-                    </label>
+                    <label class="q-radio-label"><input type="radio" name="presence" value="yes" checked> Я приду / Мы придем</label>
+                    <label class="q-radio-label"><input type="radio" name="presence" value="no"> К сожалению, не смогу</label>
                 </div>
             </div>
-
             <div class="q-group">
                 <label class="q-label">Предпочтения по напиткам</label>
                 <input type="text" class="q-input" placeholder="Например: красное вино, виски, б/а">
             </div>
-
             <div class="q-group">
                 <label class="q-label">Есть ли у вас аллергии или особые предпочтения в еде?</label>
                 <input type="text" class="q-input" placeholder="Например: вегетарианское меню, аллергия на орехи">
             </div>
-
             <div class="q-group">
                 <label class="q-label">Песня, под которую вы точно выйдете на танцпол</label>
                 <input type="text" class="q-input" placeholder="Исполнитель и название">
             </div>
-
             <div class="q-group">
                 <label class="q-label">Ваши пожелания или вопросы</label>
                 <textarea class="q-textarea" placeholder="Напишите нам что-нибудь..."></textarea>
             </div>
-
             <button type="submit" class="q-submit">Подтвердить участие</button>
         </form>
     </section>
@@ -705,70 +709,45 @@
     </audio>
 
     <script>
-        // ... (предыдущий JS полностью сохранен + добавлена логика таймера) ...
-
-        // Текст для бегущих строк
+        // Бегущие строки
         const marqueeText = "ПРИГЛАШЕНИЕ НА СВАДЬБУ • ";
         const marqueeRepeats = 10;
-        
         function fillMarquee(elementId) {
             const marqueeContent = document.getElementById(elementId);
             let fullText = "";
-            for(let i = 0; i < marqueeRepeats; i++) {
-                fullText += `<span>${marqueeText}</span>`;
-            }
+            for(let i = 0; i < marqueeRepeats; i++) fullText += `<span>${marqueeText}</span>`;
             marqueeContent.innerHTML = fullText + fullText;
         }
-        
         fillMarquee('marquee-text-1');
         fillMarquee('marquee-text-2');
 
-        // Логика кнопки музыки
+        // Музыка
         const musicBtn = document.getElementById('musicToggle');
         const audio = document.getElementById('bg-music');
         let isPlaying = false;
-
         musicBtn.addEventListener('click', () => {
-            if (isPlaying) {
-                audio.pause();
-                musicBtn.innerHTML = "Включить<br>музыку";
-            } else {
-                try {
-                    audio.play();
-                } catch(e) {
-                    console.log("Автовоспроизведение заблокировано браузером");
-                }
-                musicBtn.innerHTML = "Выключить<br>музыку";
-            }
+            if (isPlaying) { audio.pause(); musicBtn.innerHTML = "Включить<br>музыку"; }
+            else { try { audio.play(); } catch(e) {} musicBtn.innerHTML = "Выключить<br>музыку"; }
             isPlaying = !isPlaying;
         });
 
-        // Анимация появления при скролле
-        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        // Анимация при скролле
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-        animatedElements.forEach(el => observer.observe(el));
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
-        // Обработка формы
+        // Форма
         document.getElementById('guest-form').addEventListener('submit', (e) => {
             e.preventDefault();
             alert('Спасибо! Ваша анкета успешно отправлена. Ждём вас на празднике!');
         });
 
-        // ========== ТАЙМЕР ОБРАТНОГО ОТСЧЕТА ==========
-        // Устанавливаем дату свадьбы: 25 августа 2026 года
+        // ТАЙМЕР (дата 25 августа 2026)
         const weddingDate = new Date('August 25, 2026 00:00:00').getTime();
-
         function updateTimer() {
             const now = new Date().getTime();
             const distance = weddingDate - now;
-
-            // Элементы таймера
             const daysEl = document.getElementById('days');
             const hoursEl = document.getElementById('hours');
             const minutesEl = document.getElementById('minutes');
@@ -776,15 +755,10 @@
             const msgEl = document.getElementById('timerMessage');
 
             if (distance < 0) {
-                // Свадьба уже прошла или сегодня
-                daysEl.innerText = '00';
-                hoursEl.innerText = '00';
-                minutesEl.innerText = '00';
-                secondsEl.innerText = '00';
+                daysEl.innerText = '00'; hoursEl.innerText = '00'; minutesEl.innerText = '00'; secondsEl.innerText = '00';
                 msgEl.innerText = '🎉 Сегодня самый счастливый день! 🎉';
                 return;
             }
-
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -795,17 +769,10 @@
             minutesEl.innerText = minutes < 10 ? '0' + minutes : minutes;
             secondsEl.innerText = seconds < 10 ? '0' + seconds : seconds;
 
-            // Меняем сообщение в зависимости от оставшегося времени
-            if (days === 0) {
-                msgEl.innerText = 'Уже совсем скоро! 💞';
-            } else if (days < 30) {
-                msgEl.innerText = 'Считаем дни до встречи! ✨';
-            } else {
-                msgEl.innerText = 'Мы с нетерпением ждём этот день!';
-            }
+            if (days === 0) msgEl.innerText = 'Уже совсем скоро! 💞';
+            else if (days < 30) msgEl.innerText = 'Считаем дни до встречи! ✨';
+            else msgEl.innerText = 'Мы с нетерпением ждём этот день!';
         }
-
-        // Запускаем таймер и обновляем каждую секунду
         updateTimer();
         setInterval(updateTimer, 1000);
     </script>
